@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+
+<AnchorPane prefHeight="800.0" prefWidth="1200.0" stylesheets="@../../styles/admin.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.demo.Controllers.Admin.AdminDashboard">
+   <BorderPane prefHeight="800.0" prefWidth="1200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <!-- Left Sidebar -->
+      <left>
+         <VBox prefWidth="250.0" styleClass="side-vBox">
+            <padding>
+               <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+            </padding>
+            <!-- Logo and Brand -->
+            <HBox alignment="CENTER_LEFT" spacing="10.0" styleClass="brand-box">
+               <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
+                  <Image url="@../../img/logo.png" />
+               </ImageView>
+               <Label styleClass="logo-label" text="Cafe Hifi" />
+            </HBox>
+
+            <!-- Navigation Buttons -->
+            <VBox spacing="5.0" styleClass="nav-buttons">
+               <Button fx:id="dashboardBtn" onAction="#goToDashboard" styleClass="nav-button" text="Dashboard" />
+               <Button fx:id="ordersBtn" onAction="#goToOrders" styleClass="nav-button" text="Orders" />
+               <Button fx:id="menuBtn" onAction="#goToMenuItems" styleClass="nav-button" text="Menu Items" />
+               <Button fx:id="employeesBtn" onAction="#goToEmployees" styleClass="nav-button" text="Employees" />
+               <Button fx:id="reportsBtn" onAction="#goToReports" styleClass="nav-button" text="Reports" />
+               <Button fx:id="settingsBtn" onAction="#goToSettings" styleClass="nav-button" text="Settings" />
+            </VBox>
+
+            <!-- Logout Button at bottom -->
+            <VBox alignment="BOTTOM_CENTER" VBox.vgrow="ALWAYS">
+               <Button fx:id="logoutBtn" styleClass="logout-button" text="Logout" />
+            </VBox>
+         </VBox>
+      </left>
+
+      <!-- Main Content Area -->
+      <center>
+         <VBox spacing="20.0" styleClass="main-content">
+            <!-- Header -->
+            <HBox alignment="CENTER_LEFT" spacing="20.0" styleClass="dashboard-header">
+               <Label styleClass="page-title" text="Dashboard" />
+               <HBox alignment="CENTER_RIGHT" spacing="10.0" HBox.hgrow="ALWAYS">
+                  <Button fx:id="notificationsBtn" styleClass="icon-button" text="🔔" />
+                  <Button fx:id="profileBtn" onAction="#goToProfile" styleClass="icon-button" text="👤" />
+               </HBox>
+            </HBox>
+
+            <!-- Dashboard Content -->
+            <ScrollPane fitToWidth="true" styleClass="dashboard-scroll">
+               <VBox spacing="20.0">
+                  <!-- Statistics Cards -->
+                  <GridPane hgap="20.0" vgap="20.0">
+                     <Button styleClass="stat-card" text="Total Orders&#10;150" GridPane.columnIndex="0" GridPane.rowIndex="0" />
+                     <Button styleClass="stat-card" text="Daily Revenue&#10;$2,500" GridPane.columnIndex="1" GridPane.rowIndex="0" />
+                     <Button styleClass="stat-card" text="Active Tables&#10;8" GridPane.columnIndex="2" GridPane.rowIndex="0" />
+                     <Button styleClass="stat-card" text="Pending Orders&#10;5" GridPane.columnIndex="3" GridPane.rowIndex="0" />
+                     <columnConstraints>
+                        <ColumnConstraints />
+                        <ColumnConstraints />
+                        <ColumnConstraints />
+                        <ColumnConstraints />
+                     </columnConstraints>
+                     <rowConstraints>
+                        <RowConstraints />
+                     </rowConstraints>
+                  </GridPane>
+
+                  <!-- Recent Orders Table -->
+                  <VBox spacing="10.0">
+                     <Label styleClass="section-title" text="Recent Orders" />
+                     <TableView fx:id="recentOrdersTable" prefHeight="300.0" styleClass="orders-table" />
+                  </VBox>
+
+                  <!-- Popular Items Table -->
+                  <VBox spacing="10.0">
+                     <Label styleClass="section-title" text="Popular Items" />
+                     <TableView fx:id="popularItemsTable" prefHeight="300.0" styleClass="items-table" />
+                  </VBox>
+               </VBox>
+               <padding>
+                  <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+               </padding>
+            </ScrollPane>
+         </VBox>
+      </center>
+   </BorderPane>
+</AnchorPane>
