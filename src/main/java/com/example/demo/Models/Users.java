@@ -1,5 +1,6 @@
 package com.example.demo.Models;
 
+import com.example.demo.Controllers.Customer.Customer;
 import com.example.demo.Controllers.Employee.Employee;
 import com.example.demo.Database.DbConnection;
 
@@ -197,4 +198,10 @@ public class Users {
             throw new RuntimeException(e);
         }
     }
+
+//customer
+
+    //This method is used to check if the Customer username exists in the database
+
+
 }

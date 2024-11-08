@@ -1,0 +1,35 @@
+.sidebar {
+    -fx-padding: 10;
+    -fx-background-color: #f4f4f4;
+}
+
+.sidebar-button {
+    -fx-pref-width: 150;
+    -fx-background-color: #e0e0e0;
+    -fx-text-fill: #000;
+    -fx-padding: 10;
+    -fx-font-size: 14px;
+}
+
+.main-container {
+    -fx-padding: 20;
+}
+
+.header-title {
+    -fx-font-size: 24px;
+    -fx-text-fill: #4a4a4a;
+}
+
+.add-button {
+    -fx-background-color: #007bff;
+    -fx-text-fill: white;
+    -fx-padding: 10 20;
+    -fx-border-radius: 5;
+    -fx-background-radius: 5;
+}
+
+.customer-table {
+    -fx-padding: 10;
+    -fx-border-color: #ccc;
+    -fx-border-width: 1;
+}
