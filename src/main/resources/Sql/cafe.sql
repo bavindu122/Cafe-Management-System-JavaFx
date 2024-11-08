@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 07, 2024 at 09:45 AM
+-- Generation Time: Nov 08, 2024 at 07:12 AM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -28,9 +28,9 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `admin` (
-  `id` int(4) NOT NULL,
-  `name` varchar(50) NOT NULL,
-  `password` varchar(50) NOT NULL
+                         `id` int(4) NOT NULL,
+                         `name` varchar(50) NOT NULL,
+                         `password` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
@@ -38,7 +38,7 @@ CREATE TABLE `admin` (
 --
 
 INSERT INTO `admin` (`id`, `name`, `password`) VALUES
-(1, 'admin', '1234');
+    (1, 'admin', '1234');
 
 -- --------------------------------------------------------
 
@@ -47,13 +47,21 @@ INSERT INTO `admin` (`id`, `name`, `password`) VALUES
 --
 
 CREATE TABLE `employees` (
-  `emp_id` int(11) NOT NULL,
-  `name` varchar(100) NOT NULL,
-  `password` varchar(10) NOT NULL,
-  `role` varchar(50) NOT NULL,
-  `contact_number` varchar(15) DEFAULT NULL,
-  `join_date` date DEFAULT curdate()
+                             `emp_id` varchar(11) NOT NULL,
+                             `name` varchar(20) NOT NULL,
+                             `password` varchar(10) NOT NULL,
+                             `first_name` varchar(50) NOT NULL,
+                             `last_name` varchar(50) NOT NULL,
+                             `contact_number` varchar(15) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `employees`
+--
+
+INSERT INTO `employees` (`emp_id`, `name`, `password`, `first_name`, `last_name`, `contact_number`) VALUES
+                                                                                                        ('E001', 'bavi', '123', 'bavindu', 'silva', '0704830888'),
+                                                                                                        ('E002', 'leo', '1234', 'leo', 'hifi', '1234');
 
 --
 -- Indexes for dumped tables
@@ -63,13 +71,13 @@ CREATE TABLE `employees` (
 -- Indexes for table `admin`
 --
 ALTER TABLE `admin`
-  ADD PRIMARY KEY (`id`);
+    ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `employees`
 --
 ALTER TABLE `employees`
-  ADD PRIMARY KEY (`emp_id`);
+    ADD PRIMARY KEY (`emp_id`);
 
 --
 -- AUTO_INCREMENT for dumped tables
@@ -79,13 +87,7 @@ ALTER TABLE `employees`
 -- AUTO_INCREMENT for table `admin`
 --
 ALTER TABLE `admin`
-  MODIFY `id` int(4) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
-
---
--- AUTO_INCREMENT for table `employees`
---
-ALTER TABLE `employees`
-  MODIFY `emp_id` int(11) NOT NULL AUTO_INCREMENT;
+    MODIFY `id` int(4) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
