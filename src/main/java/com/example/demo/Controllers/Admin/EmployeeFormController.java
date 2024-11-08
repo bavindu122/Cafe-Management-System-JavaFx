@@ -32,8 +32,6 @@ public class EmployeeFormController {
     public TableColumn colEmployeeId;
     public TableColumn colFirstName;
     public TableColumn colLastName;
-    public TableColumn colAddress;
-    public TableColumn colSex;
     public TableColumn colMobileNo;
     public TableColumn colUpdate;
     public TableColumn colDelete;

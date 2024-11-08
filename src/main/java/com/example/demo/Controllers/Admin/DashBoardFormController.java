@@ -1,11 +1,16 @@
 package com.example.demo.Controllers.Admin;
 
 import io.github.palexdev.materialfx.controls.MFXButton;
+import io.github.palexdev.materialfx.css.themes.MFXThemeManager;
+import io.github.palexdev.materialfx.css.themes.Themes;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
+import javafx.stage.Stage;
 
 import java.io.IOException;
 
@@ -65,7 +70,21 @@ public class DashBoardFormController {
     public void btnInventoryOnAction(ActionEvent actionEvent) {
     }
 
-    public void btnLogoutOnAction(ActionEvent actionEvent) {
+    @FXML
+    void btnLogoutOnAction(ActionEvent event) throws IOException {
+        Parent rootNode = FXMLLoader.load(this.getClass().getResource("/fxml/Login.fxml"));
+        Scene scene = new Scene(rootNode);
+        MFXThemeManager.addOn(scene, Themes.DEFAULT, Themes.LEGACY);
+        Stage stage = new Stage();
+        stage.setScene(scene);
+        stage.centerOnScreen();
+        stage.setTitle("Login");
+        stage.show();
+
+        //Close the Current Window
+        Stage dashboard= (Stage) btnLogout.getScene().getWindow();
+        dashboard.close();
+
     }
     private void setButtonActive(MFXButton activeButton) {
 
