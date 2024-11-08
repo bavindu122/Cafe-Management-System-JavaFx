@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane fx:id="employeePane" prefHeight="720.0" prefWidth="1030.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.demo.Controllers.Admin.MenuController">
+   <SplitPane dividerPositions="0.6620294599018003" layoutX="25.0" layoutY="81.0" prefHeight="602.0" prefWidth="979.0">
+     <items>
+       <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="601.0" prefWidth="602.0" style="-fx-background-color: #F0FFF0;">
+            <children>
+               <Label layoutX="30.0" layoutY="14.0" text="COFFEE">
+                  <font>
+                     <Font size="20.0" />
+                  </font>
+               </Label>
+               <Label layoutX="346.0" layoutY="14.0" text="TEA">
+                  <font>
+                     <Font size="20.0" />
+                  </font>
+               </Label>
+               <Pane layoutX="30.0" layoutY="65.0" prefHeight="142.0" prefWidth="160.0">
+                  <children>
+                     <Button fx:id="addLatteButton" onAction="#handleAddLatte" layoutX="116.0" layoutY="112.0" mnemonicParsing="false" style="-fx-background-color: #1E90FF;" text="ADD" textFill="WHITE" />
+                     <ImageView fitHeight="74.0" fitWidth="167.0" layoutX="31.0" pickOnBounds="true" preserveRatio="true">
+                        <image>
+                           <Image url="@../../img/images/latte.jpg" />
+                        </image>
+                     </ImageView>
+                     <Label layoutX="17.0" layoutY="85.0" text="LATTE">
+                        <font>
+                           <Font size="14.0" />
+                        </font>
+                     </Label>
+                     <Label layoutX="118.0" layoutY="85.0" text="\$10">
+                        <font>
+                           <Font size="14.0" />
+                        </font>
+                     </Label>
+                     <ChoiceBox fx:id="latteChoice" layoutX="12.0" layoutY="112.0" prefHeight="25.0" prefWidth="54.0" />
+                  </children>
+               </Pane>
+               <Pane layoutX="30.0" layoutY="250.0" prefHeight="142.0" prefWidth="160.0">
+                  <children>
+                     <ImageView fitHeight="74.0" fitWidth="167.0" layoutX="17.0" pickOnBounds="true" preserveRatio="true">
+                        <image>
+                           <Image url="@../../img/images/Americano.jpeg" />
+                        </image>
+                     </ImageView>
+                     <Button fx:id="addAmericanoButton" onAction="#handleAddAmericano" layoutX="116.0" layoutY="112.0" mnemonicParsing="false" style="-fx-background-color: #1E90FF;" text="ADD" textFill="WHITE" />
+                     <Label layoutX="17.0" layoutY="80.0" text="AMERICANO">
+                        <font>
+                           <Font size="14.0" />
+                        </font>
+                     </Label>
+                     <Label layoutX="118.0" layoutY="82.0" text="\$11">
+                        <font>
+                           <Font size="14.0" />
+                        </font>
+                     </Label>
+                     <ChoiceBox fx:id="americanoChoice" layoutX="14.0" layoutY="112.0" prefHeight="25.0" prefWidth="54.0" />
+                  </children>
+               </Pane>
+               <Pane layoutX="30.0" layoutY="435.0" prefHeight="142.0" prefWidth="160.0">
+                  <children>
+                     <ImageView fitHeight="74.0" fitWidth="167.0" layoutX="43.0" pickOnBounds="true" preserveRatio="true">
+                        <image>
+                           <Image url="@../../img/images/Cappuccino.jpg" />
+                        </image>
+                     </ImageView>
+                     <Button fx:id="addCappuccinoButton" onAction="#handleAddCappuccino" layoutX="116.0" layoutY="112.0" mnemonicParsing="false" style="-fx-background-color: #1E90FF;" text="ADD" textFill="WHITE" />
+                     <Label layoutX="14.0" layoutY="83.0" text="CAPPACHUNO" />
+                     <Label layoutX="117.0" layoutY="82.0" text="\$15">
+                        <font>
+                           <Font size="14.0" />
+                        </font>
+                     </Label>
+                     <ChoiceBox fx:id="cappuccinoChoice" layoutX="16.0" layoutY="111.0" prefHeight="25.0" prefWidth="54.0" />
+                  </children>
+               </Pane>
+               <Pane layoutX="346.0" layoutY="65.0" prefHeight="142.0" prefWidth="160.0">
+                  <children>
+                     <ImageView fitHeight="74.0" fitWidth="167.0" layoutX="32.0" pickOnBounds="true" preserveRatio="true">
+                        <image>
+                           <Image url="@../../img/images/green_tea.jpg" />
+                        </image>
+                     </ImageView>
+                     <Button fx:id="addGreenTeaButton" onAction="#handleAddGreenTea" layoutX="116.0" layoutY="112.0" mnemonicParsing="false" style="-fx-background-color: #1E90FF;" text="ADD" textFill="WHITE" />
+                     <Label layoutX="25.0" layoutY="84.0" text="GREEN TEA">
+                        <font>
+                           <Font size="14.0" />
+                        </font>
+                     </Label>
+                     <Label layoutX="117.0" layoutY="84.0" text="\$8">
+                        <font>
+                           <Font size="14.0" />
+                        </font>
+                     </Label>
+                     <ChoiceBox fx:id="greenTeaChoice" layoutX="18.0" layoutY="112.0" prefHeight="25.0" prefWidth="54.0" />
+                  </children>
+               </Pane>
+               <Pane layoutX="346.0" layoutY="250.0" prefHeight="142.0" prefWidth="160.0">
+                  <children>
+                     <ImageView fitHeight="74.0" fitWidth="167.0" layoutX="46.0" pickOnBounds="true" preserveRatio="true">
+                        <image>
+                           <Image url="@../../img/images/herbal_tea.jpg" />
+                        </image>
+                     </ImageView>
+                     <Button fx:id="addHerbalTeaButton" onAction="#handleAddHerbalTea" layoutX="116.0" layoutY="113.0" mnemonicParsing="false" style="-fx-background-color: #1E90FF;" text="ADD" textFill="WHITE" />
+                     <Label layoutX="26.0" layoutY="81.0" text="HERBEL TEA" />
+                     <Label layoutX="116.0" layoutY="80.0" text="\$9">
+                        <font>
+                           <Font size="14.0" />
+                        </font>
+                     </Label>
+                     <ChoiceBox fx:id="herbalTeaChoice"  layoutX="21.0" layoutY="113.0" prefHeight="25.0" prefWidth="54.0" />
+                  </children>
+               </Pane>
+               <Pane layoutX="346.0" layoutY="427.0" prefHeight="142.0" prefWidth="160.0">
+                  <children>
+                     <ImageView fitHeight="74.0" fitWidth="167.0" layoutX="50.0" pickOnBounds="true" preserveRatio="true">
+                        <image>
+                           <Image url="@../../img/images/lemon_tea.jpg" />
+                        </image>
+                     </ImageView>
+                     <Button fx:id="addLemonTeaButton" onAction="#handleAddLemonTea" layoutX="116.0" layoutY="112.0" mnemonicParsing="false" style="-fx-background-color: #1E90FF;" text="ADD" textFill="WHITE" />
+                     <Label layoutX="30.0" layoutY="85.0" text="LEMON TEA" />
+                     <Label layoutX="117.0" layoutY="85.0" text="\$9">
+                        <font>
+                           <Font size="14.0" />
+                        </font>
+                     </Label>
+                     <ChoiceBox fx:id="lemonTeaChoice" layoutX="24.0" layoutY="111.0" prefHeight="25.0" prefWidth="54.0" />
+                  </children>
+               </Pane>
+            </children>
+         </AnchorPane>
+       <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="601.0" prefWidth="267.0" style="-fx-background-color: #F0FFF0;">
+            <children>
+               <TableView layoutX="24.0" layoutY="58.0" prefHeight="315.0" prefWidth="250.0">
+                  <columns>
+                     <TableColumn prefWidth="97.5999174118042" text="Product Name" />
+                     <TableColumn prefWidth="76.800048828125" text="Quantity" />
+                     <TableColumn prefWidth="76.79991149902344" text="Price($) " />
+                  </columns>
+               </TableView>
+            </children></AnchorPane>
+     </items>
+   </SplitPane>
+   <Pane layoutX="23.0" layoutY="16.0" prefHeight="55.0" prefWidth="979.0" style="-fx-background-color: #E6E6FA;">
+      <children>
+         <Text fill="#636e72" layoutX="413.0" layoutY="43.0" strokeType="OUTSIDE" strokeWidth="0.0" text="MENU" wrappingWidth="109.30474853515625">
+            <font>
+               <Font name="Roboto Medium" size="37.0" />
+            </font>
+            <effect>
+               <DropShadow>
+                  <color>
+                     <Color opacity="0.2786259651184082" />
+                  </color>
+               </DropShadow>
+            </effect>
+         </Text>
+      </children>
+   </Pane>
+</AnchorPane>
