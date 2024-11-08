@@ -68,11 +68,11 @@
             </ImageView>
          </graphic>
       </MFXButton>
-      <MFXButton fx:id="btnProductClear" buttonType="RAISED" depthLevel="LEVEL3" layoutX="269.0" layoutY="189.0" prefHeight="34.0" prefWidth="104.0" style="-fx-background-color: #ff7675;" styleClass="mfx-button-Employee" stylesheets="@../../styles/MFXEmployee.css" text="Clear">
+      <MFXButton fx:id="btnProductUpdate" buttonType="RAISED" depthLevel="LEVEL3" layoutX="254.0" layoutY="189.0" onAction="#btnProductUpdateOnAction" prefHeight="34.0" prefWidth="104.0" style="-fx-background-color: #74b9ff;" styleClass="mfx-button-Employee" stylesheets="@../../styles/MFXEmployee.css" text="Update">
          <graphic>
             <ImageView fitHeight="27.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../../img/icons/remove.png" />
+                  <Image url="@../../img/icons/update.png" />
                </image>
             </ImageView>
          </graphic>
@@ -92,5 +92,14 @@
          </image>
       </ImageView>
       <MFXFilterComboBox fx:id="cmbProductType" floatMode="DISABLED" layoutX="109.0" layoutY="115.0" onAction="#cmbProductTypeOnAction" prefHeight="45.0" prefWidth="160.0" styleClass="mfx-combo-box" stylesheets="@../../styles/MFXProcessing.css" />
+      <MFXButton fx:id="btnProductClear" buttonType="RAISED" depthLevel="LEVEL3" layoutX="391.0" layoutY="189.0" onAction="#btnProductClearOnAction" prefHeight="34.0" prefWidth="104.0" style="-fx-background-color: #ff7675;" styleClass="mfx-button-Employee" stylesheets="@../../styles/MFXEmployee.css" text="Clear">
+         <graphic>
+            <ImageView fitHeight="27.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../img/icons/remove.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </MFXButton>
    </AnchorPane>
 </AnchorPane>

@@ -11,6 +11,7 @@ public class Product {
     private String productType;
     private int stock;
     private double price;
+    private byte[] image;
 
     public Product(String productId, String productName, String productType, int stock, double price) {
         this.productId = productId;
@@ -20,4 +21,12 @@ public class Product {
         this.price = price;
     }
 
+    public Product(String productId, String productName, String productType, int stock, double price, byte[] image) {
+        this.productId = productId;
+        this.productName = productName;
+        this.productType = productType;
+        this.stock = stock;
+        this.price = price;
+        this.image = image;
+    }
 }

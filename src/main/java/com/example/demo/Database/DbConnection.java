@@ -1,8 +1,9 @@
 package com.example.demo.Database;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.SQLException;
+import javafx.scene.image.Image;
+
+import java.io.InputStream;
+import java.sql.*;
 
 public class DbConnection {
 
@@ -21,5 +22,6 @@ public class DbConnection {
         public Connection getConnection(){
             return connection;
         }
+
 
 }
