@@ -1,8 +1,19 @@
 package com.example.demo.Controllers.Admin;
 
 import javafx.event.ActionEvent;
+import javafx.scene.control.Button;
 
 public class NavBar {
+    public Button notificationsBtn;
+    public Button profileBtn;
+    public Button logoutBtn;
+    public Button settingsBtn;
+    public Button reportsBtn;
+    public Button employeesBtn;
+    public Button menuBtn;
+    public Button ordersBtn;
+    public Button dashboardBtn;
+
     public void goToMenuItems(ActionEvent actionEvent) {
         System.out.println("GoToMenuItems");
     }

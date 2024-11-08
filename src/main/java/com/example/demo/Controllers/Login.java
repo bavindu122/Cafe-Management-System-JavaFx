@@ -2,6 +2,8 @@ package com.example.demo.Controllers;
 
 import com.example.demo.Controllers.Admin.Admin;
 import com.example.demo.Models.Users;
+import io.github.palexdev.materialfx.css.themes.MFXThemeManager;
+import io.github.palexdev.materialfx.css.themes.Themes;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -30,10 +32,11 @@ public class Login {
             if (result == 1) {
                 System.out.println("Login Successful");
                 Admin admin = new Admin(username, password);
-                FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/fxml/Admin/AdminDashboard.fxml"));
+                FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/fxml/Admin/DashBoardControl.fxml"));
                 Parent parent = fxmlLoader.load();
                 Scene scene = new Scene(parent);
                 Stage stage = new Stage();
+                MFXThemeManager.addOn(scene, Themes.DEFAULT, Themes.LEGACY);
                 stage.setScene(scene);
                 stage.centerOnScreen();
                 stage.show();
