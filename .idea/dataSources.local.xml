@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="dataSourceStorageLocal" created-in="IU-242.23726.103">
+    <data-source name="cafe@localhost [2]" uuid="4d5ac4aa-7ee7-4697-8afb-d553031b3410">
+      <database-info product="" version="" jdbc-version="" driver-name="" driver-version="" dbms="MYSQL_AURORA" />
+      <schema-mapping />
+    </data-source>
+    <data-source name="cafe@localhost" uuid="06f62b3f-5782-47ad-9726-f376fb63668c">
+      <database-info product="" version="" jdbc-version="" driver-name="" driver-version="" dbms="MARIADB" />
+      <schema-mapping />
+    </data-source>
+  </component>
+</project>
