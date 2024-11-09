@@ -52,13 +52,14 @@ public class DashBoardFormController {
     @FXML
     void btnEmployeeOnAction(ActionEvent event) throws IOException {
         setButtonActive(btnEmployee);
-        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/fxml/Admin/employeeForm.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/fxml/Admin/EmployeeForm.fxml"));
         Pane registerPane = (Pane) fxmlLoader.load();
         mainPane.getChildren().clear();
         mainPane.getChildren().add(registerPane);
     }
 
     public void btnMenuItemsOnAction(ActionEvent actionEvent) {
+
     }
 
     public void btnCustomerOnAction(ActionEvent actionEvent) {
@@ -67,7 +68,12 @@ public class DashBoardFormController {
     public void btnSalesOnAction(ActionEvent actionEvent) {
     }
 
-    public void btnInventoryOnAction(ActionEvent actionEvent) {
+    public void btnInventoryOnAction(ActionEvent actionEvent) throws IOException {
+        setButtonActive(btnInventory);
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/fxml/Admin/InventoryForm.fxml"));
+        Pane registerPane = (Pane) fxmlLoader.load();
+        mainPane.getChildren().clear();
+        mainPane.getChildren().add(registerPane);
     }
 
     @FXML
