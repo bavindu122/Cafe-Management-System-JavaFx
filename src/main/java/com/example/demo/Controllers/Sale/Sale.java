@@ -3,6 +3,7 @@ package com.example.demo.Controllers.Sale;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.util.ArrayList;
 import java.util.Date;
 
 @Getter
@@ -13,6 +14,7 @@ public class Sale {
     private String cusContact;
     private Double total;
     private Date date;
+
 
     @Override
     public String toString() {

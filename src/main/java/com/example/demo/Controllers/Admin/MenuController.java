@@ -168,6 +168,9 @@ public class MenuController {
         Sale sale = new Sale(saleId, customer.getName(), customer.getContact_Number(), total, new java.util.Date());
         boolean isAdded = SalesModel.addSale(sale);
         if (isAdded) {
+            for (Product product : productList) {
+                ProductsModel.updateStock(product.getProductName(), product.getStock());
+            }
             new Alert(Alert.AlertType.CONFIRMATION, "Order added").show();
             productList.clear();
             menu_total.setText("Rs. 0.00");

@@ -1,5 +1,7 @@
 package com.example.demo.Controllers.Admin;
 
+import com.example.demo.Controllers.Sale.Sale;
+import com.example.demo.Models.SalesModel;
 import io.github.palexdev.materialfx.controls.MFXButton;
 import javafx.animation.Animation;
 import javafx.animation.KeyFrame;
@@ -16,6 +18,7 @@ import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
 import java.util.Date;
 
 public class DashBoardMainFormController {
@@ -24,6 +27,8 @@ public class DashBoardMainFormController {
     public AnchorPane mainPane;
     public Text txtOrders;
     public Text txtDate;
+    public Text txtSales;
+    public Text txtCustomers;
     @FXML
     private Text txtTime;
 
@@ -31,6 +36,7 @@ public class DashBoardMainFormController {
         updateTime();
         sentName(Admin.getName());
         updateDate();
+        txtSales.setText("Rs."+String.valueOf(SalesModel.getAllSalesAmount())+"0");
     }
     private void sentName(String name) {
         txtUser.setText(name);
@@ -56,6 +62,7 @@ public class DashBoardMainFormController {
         SimpleDateFormat dateFormat=new SimpleDateFormat("hh:mm:ss a");
         return dateFormat.format(new Date()) ;
     }
+
 
 
 

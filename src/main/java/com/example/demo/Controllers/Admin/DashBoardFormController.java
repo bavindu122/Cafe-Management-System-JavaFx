@@ -72,7 +72,12 @@ public class DashBoardFormController {
         mainPane.getChildren().add(registerPane);
     }
 
-    public void btnSalesOnAction(ActionEvent actionEvent) {
+    public void btnSalesOnAction(ActionEvent actionEvent) throws IOException {
+        setButtonActive(btnSales);
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/fxml/Admin/SalesForm.fxml"));
+        Pane registerPane = (Pane) fxmlLoader.load();
+        mainPane.getChildren().clear();
+        mainPane.getChildren().add(registerPane);
     }
 
     public void btnInventoryOnAction(ActionEvent actionEvent) throws IOException {

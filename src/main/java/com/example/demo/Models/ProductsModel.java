@@ -149,4 +149,36 @@ public class ProductsModel {
             throw new RuntimeException(e);
         }
     }
+    public static int getStockAmount(String productName) {
+        try {
+            Connection connection = DbConnection.getInstance().getConnection();
+            String sql = "SELECT stock FROM products WHERE product_name=?";
+            PreparedStatement pstm = connection.prepareStatement(sql);
+            pstm.setString(1, productName);
+            ResultSet resultSet = pstm.executeQuery();
+            if (resultSet.next()) {
+                return resultSet.getInt(1);
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+        return 0;
+    }
+
+    public static void updateStock(String name, int decreaseStock) {
+        try {
+            Connection connection = DbConnection.getInstance().getConnection();
+            String sql = "UPDATE products SET stock=? WHERE product_name=?";
+            PreparedStatement pstm = connection.prepareStatement(sql);
+            int newStock = getStockAmount(name)-decreaseStock;
+            pstm.setInt(1, newStock);
+            pstm.setString(2, name);
+            pstm.executeUpdate();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+
+
 }

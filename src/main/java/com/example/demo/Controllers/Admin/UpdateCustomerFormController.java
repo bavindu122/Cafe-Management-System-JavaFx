@@ -76,7 +76,7 @@ public class UpdateCustomerFormController {
 
 
         String mobileNo = txtMobileNo.getText();
-        boolean isMobileNoValid = Pattern.matches("[0-9]{3,}",mobileNo);
+        boolean isMobileNoValid = Pattern.matches("\\d{10}",mobileNo);
         if (!isMobileNoValid){
             txtMobileNo.requestFocus();
             txtMobileNo.getStyleClass().add("mfx-text-field-error");

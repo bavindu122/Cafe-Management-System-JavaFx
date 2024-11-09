@@ -3,6 +3,7 @@ package com.example.demo.Controllers.Admin;
 
 import com.example.demo.Controllers.Product.Product;
 import com.example.demo.Models.ProductsModel;
+import com.example.demo.Models.SalesModel;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
