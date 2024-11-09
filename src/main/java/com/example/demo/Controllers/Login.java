@@ -1,6 +1,7 @@
 package com.example.demo.Controllers;
 
 import com.example.demo.Controllers.Admin.Admin;
+import com.example.demo.Controllers.Employee.Employee;
 import com.example.demo.Models.Users;
 import io.github.palexdev.materialfx.css.themes.MFXThemeManager;
 import io.github.palexdev.materialfx.css.themes.Themes;
@@ -20,7 +21,6 @@ public class Login {
     public Button loginButton;
     public Label error_msg;
 
-
     public void handleLogin(ActionEvent actionEvent) {
         String username = usernameField.getText();
         String password = passwordField.getText();
@@ -30,7 +30,7 @@ public class Login {
         try {
             int result = Users.checkAdminLogin(username, password);
             if (result == 1) {
-                System.out.println("Login Successful");
+                System.out.println("Admin Login Successful");
                 Admin admin = new Admin(username, password);
                 FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/fxml/Admin/DashBoardControl.fxml"));
                 Parent parent = fxmlLoader.load();
@@ -45,23 +45,36 @@ public class Login {
                 loginStage.close();
 
             } else if (result == 2) {
-                System.out.println("Incorrect Password");
+                System.out.println("Incorrect Admin Password");
                 error_msg.setText("Incorrect Password");
             } else if (result == 0) {
                 result = Users.checkEmployeeLogin(username, password);
                 if (result == 1) {
-                    System.out.println("Login Successful");
-                } else if (result == 0) {
-                    System.out.println("Username does not exist");
-                    error_msg.setText("Username does not exist");
+                    System.out.println("Employee Login Successful");
+                    Employee employee = new Employee(username, password);
+                    FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/fxml/Employee/DashBoardControl.fxml"));
+                    Parent parent = fxmlLoader.load();
+                    Scene scene = new Scene(parent);
+                    Stage stage = new Stage();
+                    MFXThemeManager.addOn(scene, Themes.DEFAULT, Themes.LEGACY);
+                    stage.setScene(scene);
+                    stage.centerOnScreen();
+                    stage.show();
+
+                    Stage loginStage = (Stage) usernameField.getScene().getWindow();
+                    loginStage.close();
+
                 } else if (result == 2) {
-                    System.out.println("Incorrect Password");
+                    System.out.println("Incorrect Employee Password");
                     error_msg.setText("Incorrect Password");
+                } else {
+                    System.out.println("User not found");
+                    error_msg.setText("User not found");
                 }
             }
         } catch (Exception e) {
-            System.out.println("Login Failed");
-            System.out.println(e.getMessage());
+            e.printStackTrace();
+            error_msg.setText("An error occurred");
         }
     }
 
