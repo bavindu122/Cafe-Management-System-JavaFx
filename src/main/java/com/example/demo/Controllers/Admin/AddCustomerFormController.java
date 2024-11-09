@@ -91,19 +91,15 @@ public class AddCustomerFormController {
 
         txtName.getStyleClass().removeAll("mfx-text-field-error");
 
-
-        txtName.getStyleClass().removeAll("mfx-text-field-error");
-
-        String password = txtPassword.getText();
-        boolean isPasswordValid = Pattern.matches("[A-Za-z0-9/ ]{3,}", password);
-        if (!isPasswordValid) {
-            txtPassword.requestFocus();
-            txtPassword.getStyleClass().add("mfx-text-field-error");
+        String address = txtAddress.getText();
+        boolean isAddressValid = Pattern.matches("[A-Za-z]{3,}", address);
+        if (!isAddressValid) {
+            txtAddress.requestFocus();
+            txtAddress.getStyleClass().add("mfx-text-field-error");
             return false;
         }
 
-        txtPassword.getStyleClass().removeAll("mfx-text-field-error");
-
+        txtAddress.getStyleClass().removeAll("mfx-text-field-error");
 
         String mobileNo = txtMobileNo.getText();
         boolean isMobileNoValid = Pattern.matches("[0-9]{3,}", mobileNo);

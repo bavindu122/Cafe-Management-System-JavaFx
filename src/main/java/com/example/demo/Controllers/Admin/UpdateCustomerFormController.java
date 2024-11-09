@@ -1,10 +1,7 @@
 package com.example.demo.Controllers.Admin;
 
 import com.example.demo.Controllers.Customer.Customer;
-import com.example.demo.Controllers.Employee.Employee;
 import com.example.demo.Models.CustomerModel;
-import com.example.demo.Models.Users;
-import com.sun.javafx.charts.Legend;
 import io.github.palexdev.materialfx.controls.MFXButton;
 import io.github.palexdev.materialfx.controls.MFXTextField;
 import javafx.event.ActionEvent;
@@ -13,10 +10,6 @@ import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import lombok.Setter;
 
-import java.awt.*;
-import java.sql.SQLException;
-import java.time.LocalDate;
-import java.util.Objects;
 import java.util.regex.Pattern;
 
 
@@ -27,7 +20,6 @@ public class UpdateCustomerFormController {
     public MFXTextField txtAddress;
     public Text txtCustomerId;
     public MFXTextField txtMobileNo;
-    public MFXTextField txtPassword;
 
     private String cusId;
     @Setter
@@ -39,7 +31,7 @@ public class UpdateCustomerFormController {
         boolean isCustomerValidated = validateCustomer();
         System.out.println(isCustomerValidated);
 
-        if (!isCustomerValidated){
+        if (!isCustomerValidated) {
             return;
         }
 
@@ -62,7 +54,7 @@ public class UpdateCustomerFormController {
 
     private boolean validateCustomer() {
         String Name = txtName.getText();
-        boolean isFirstNameValid = Pattern.matches("[A-Za-z]{3,}",Name);
+        boolean isNameValid = Pattern.matches("[A-Za-z]{3,}",Name);
         if (!isNameValid){
             txtName.requestFocus();
             txtName.getStyleClass().add("mfx-text-field-error");
@@ -81,16 +73,6 @@ public class UpdateCustomerFormController {
         }
 
         txtAddress.getStyleClass().removeAll("mfx-text-field-error");
-
-        String password = txtPassword.getText();
-        boolean isPasswordValid = Pattern.matches("[A-Za-z0-9/ ]{3,}",password);
-        if (!isPasswordValid){
-            txtPassword.requestFocus();
-            txtPassword.getStyleClass().add("mfx-text-field-error");
-            return false;
-        }
-
-        txtPassword.getStyleClass().removeAll("mfx-text-field-error");
 
 
         String mobileNo = txtMobileNo.getText();
@@ -113,19 +95,19 @@ public class UpdateCustomerFormController {
 
     }
 
-    public void setCustomerId(String empId) {
+    public void setCusId(String cusId) {
         this.cusId = cusId;
     }
 
-    /*public void loadCustomerDetails() {
+    public void loadCustomerDetails() {
 
-        Customer customer = Users.searchCustomer(cusId);
+        Customer customer = CustomerModel.searchCustomer(cusId);
         setFields(customer);
 
-    }*/
+    }
 
     private void setFields(Customer dto) {
-
+        System.out.println(dto);
 
         txtCustomerId.setText(dto.getCusId());
         txtName.setText(dto.getName());
@@ -133,4 +115,5 @@ public class UpdateCustomerFormController {
         txtMobileNo.setText(dto.getContact_Number());
 
     }
+
 }

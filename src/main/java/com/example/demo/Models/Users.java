@@ -199,6 +199,7 @@ public class Users {
         }
     }
 
+
 //customer
 
     //This method is used to check if the Customer username exists in the database

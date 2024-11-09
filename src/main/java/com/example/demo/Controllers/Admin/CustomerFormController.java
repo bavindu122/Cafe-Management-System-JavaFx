@@ -1,16 +1,12 @@
 package com.example.demo.Controllers.Admin;
 
 import com.example.demo.Controllers.Admin.Tables.CustomerTable;
-import com.example.demo.Controllers.Admin.Tables.EmployeeTable;
 import com.example.demo.Controllers.Customer.Customer;
-import com.example.demo.Controllers.Employee.Employee;
 import com.example.demo.Models.CustomerModel;
-import com.example.demo.Models.Users;
 import io.github.palexdev.materialfx.controls.MFXButton;
 import io.github.palexdev.materialfx.controls.MFXTextField;
 import io.github.palexdev.materialfx.css.themes.MFXThemeManager;
 import io.github.palexdev.materialfx.css.themes.Themes;
-import javafx.beans.Observable;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -34,7 +30,6 @@ public class CustomerFormController {
     public TableColumn colCustomerId;
     public TableColumn colName;
     public TableColumn colAddress;
-
     public TableColumn colMobileNo;
     public TableColumn colUpdate;
     public TableColumn colDelete;
@@ -52,7 +47,7 @@ public class CustomerFormController {
     //Display the employee details in the table
     private void setCellValuesFactory() {
         colCustomerId.setCellValueFactory(new PropertyValueFactory<>("cusId"));
-        colName.setCellValueFactory(new PropertyValueFactory<>("Name"));
+        colName.setCellValueFactory(new PropertyValueFactory<>("name"));
         colAddress.setCellValueFactory(new PropertyValueFactory<>("address"));
         colMobileNo.setCellValueFactory(new PropertyValueFactory<>("contact_Number"));
         colUpdate.setCellValueFactory(new PropertyValueFactory<>("updateButton"));
@@ -114,11 +109,20 @@ public class CustomerFormController {
         FXMLLoader loader = new FXMLLoader(this.getClass().getResource("/fxml/Admin/UpdateCustomerForm.fxml"));
         Parent rootNode = loader.load();
 
-        Object updateCustomerFormController = loader.getController();
+        // Get a reference to the UpdateCustomerFormController
+        UpdateCustomerFormController updateCustomerFormController = loader.getController();
 
+        // Pass a reference to this CustomerFormController
         updateCustomerFormController.setCustomerFormController(this);
-        updateCustomerFormController.setCustomerId(cusId);
+
+        // Set the customer id to the UpdateCustomerFormController
+        updateCustomerFormController.setCusId(cusId);
+
+        // Load the customer details
         updateCustomerFormController.loadCustomerDetails();
+
+        System.out.println("akaya");
+
 
         Scene scene = new Scene(rootNode);
         MFXThemeManager.addOn(scene, Themes.DEFAULT, Themes.LEGACY);
@@ -150,6 +154,7 @@ public class CustomerFormController {
         // Pass a reference to this CustomerFormController
         addCustomerFormController.setCustomerFormController(this);
 
+
         Scene scene = new Scene(rootNode);
         MFXThemeManager.addOn(scene, Themes.DEFAULT, Themes.LEGACY);
         Stage stage = new Stage();
@@ -160,6 +165,7 @@ public class CustomerFormController {
     }
 
     public void txtSearchOnAction(ActionEvent actionEvent) {
+
     }
 }
 

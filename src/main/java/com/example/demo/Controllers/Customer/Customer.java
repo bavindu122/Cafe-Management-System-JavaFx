@@ -44,4 +44,14 @@ public class Customer {
     public void setContact_Number(String contact_Number) {
         this.contact_Number = contact_Number;
     }
+
+    @Override
+    public String toString() {
+        return "Customer{" +
+                "cusId='" + cusId + '\'' +
+                ", Name='" + Name + '\'' +
+                ", address='" + address + '\'' +
+                ", contact_Number='" + contact_Number + '\'' +
+                '}';
+    }
 }

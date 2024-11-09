@@ -84,7 +84,8 @@ public class CustomerModel {
     public static boolean updateCustomer(com.example.demo.Controllers.Customer.Customer customer) {
         try {
             Connection connection = DbConnection.getInstance().getConnection();
-            String sql = "UPDATE customers SET name=?, address=?, contact_number=? WHERE cus_id=?";
+            System.out.println (customer);
+            String sql = "UPDATE customers SET name=?, address=?, contact_no=? WHERE cus_id=?";
             PreparedStatement pstm = connection.prepareStatement(sql);
             pstm.setString(1, customer.getName());
             pstm.setString(2, customer.getAddress());
@@ -102,7 +103,7 @@ public class CustomerModel {
     public static Customer searchCustomer(String cusId) {
         try {
             Connection connection = DbConnection.getInstance().getConnection();
-            String sql = "SELECT * FROM customers WHERE cus_Id=?";
+            String sql = "SELECT * FROM customers WHERE cus_id=?";
             PreparedStatement pstm = connection.prepareStatement(sql);
             pstm.setString(1, cusId);
             ResultSet resultSet = pstm.executeQuery();
@@ -111,6 +112,7 @@ public class CustomerModel {
                 String name = resultSet.getString(2);
                 String address = resultSet.getString(3);
                 String contact_number = resultSet.getString(4);
+                System.out.println("Customer Found");
                 return new Customer(cus_id, name, address, contact_number);
             }
             return null;
@@ -122,12 +124,12 @@ public class CustomerModel {
     public static boolean addCustomer(com.example.demo.Controllers.Customer.Customer customer) {
         try {
             Connection connection = DbConnection.getInstance().getConnection();
-            String sql = "INSERT INTO customers VALUES(?,?,?,?,?,?)";
+            String sql = "INSERT INTO customers VALUES(?,?,?,?)";
             PreparedStatement pstm = connection.prepareStatement(sql);
             pstm.setString(1, customer.getCusId());
-            pstm.setString(4, customer.getName());
-            pstm.setString(5, customer.getAddress());
-            pstm.setString(6, customer.getContact_Number());
+            pstm.setString(2, customer.getName());
+            pstm.setString(3, customer.getAddress());
+            pstm.setString(4, customer.getContact_Number());
             return pstm.executeUpdate() > 0;
         } catch (SQLException e) {
             throw new RuntimeException(e);
