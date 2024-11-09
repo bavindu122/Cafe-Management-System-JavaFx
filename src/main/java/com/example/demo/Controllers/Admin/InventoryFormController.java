@@ -196,7 +196,7 @@ public class InventoryFormController {
         } else if (cmbProductType.getSelectionModel().isBound()) {
             new Alert(Alert.AlertType.ERROR, "Please fill all the fields").show();
             return false;
-        } else if (!txtStock.getText().matches("[0-9]+") || !txtPrice.getText().matches("   ^[0-9]+(\\.[0-9]{1,2})?$")) {
+        } else if (!txtStock.getText().matches("[0-9]+") || !txtPrice.getText().matches("^[0-9]+(\\.[0-9]+)?$")) {
             new Alert(Alert.AlertType.ERROR, "Please enter a valid number").show();
             return false;
         }
