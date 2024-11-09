@@ -26,6 +26,27 @@ public class ProductsModel {
         }
         return products;
     }
+    public static List<Product> getAllProductsWithImages() {
+        try {
+            Connection connection = DbConnection.getInstance().getConnection();
+            String sql = "SELECT * FROM products";
+            PreparedStatement pstm = connection.prepareStatement(sql);
+            List<Product> products = new ArrayList<>();
+            ResultSet resultSet = pstm.executeQuery();
+            while (resultSet.next()) {
+                String product_id = resultSet.getString(1);
+                String product_name = resultSet.getString(2);
+                String product_type = resultSet.getString(3);
+                int stock = resultSet.getInt(4);
+                double price = resultSet.getDouble(5);
+                byte[] imageBytes = resultSet.getBytes(6);
+                products.add(new Product(product_id, product_name, product_type, stock, price, imageBytes));
+            }
+            return products;
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
 
     public static boolean deleteProduct(String productId) {
         try {

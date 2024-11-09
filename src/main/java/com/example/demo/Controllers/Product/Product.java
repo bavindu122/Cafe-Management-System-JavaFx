@@ -29,4 +29,14 @@ public class Product {
         this.price = price;
         this.image = image;
     }
+    @Override
+    public String toString() {
+        return "Product{" +
+                "productId='" + productId + '\'' +
+                ", productName='" + productName + '\'' +
+                ", productType='" + productType + '\'' +
+                ", stock=" + stock +
+                ", price=" + price +
+                '}';
+    }
 }
