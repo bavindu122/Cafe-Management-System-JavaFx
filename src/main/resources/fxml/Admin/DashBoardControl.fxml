@@ -41,27 +41,6 @@
                         <Insets />
                      </opaqueInsets>
                   </MFXButton>
-                  <MFXButton fx:id="btnOrder" alignment="BASELINE_LEFT" graphicTextGap="10.0" onAction="#btnOrderOnAction" prefHeight="50.0" prefWidth="190.0" styleClass="mfx-button-Dashboard" stylesheets="@../../styles/MFXDashboard.css" text="Orders" textFill="WHITE">
-                     <graphic>
-                        <ImageView fitHeight="19.0" fitWidth="29.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@../../img/icons/packaging.png" />
-                           </image>
-                        </ImageView>
-                     </graphic>
-                     <font>
-                        <Font size="20.0" />
-                     </font>
-                     <opaqueInsets>
-                        <Insets left="10.0" />
-                     </opaqueInsets>
-                     <VBox.margin>
-                        <Insets />
-                     </VBox.margin>
-                     <padding>
-                        <Insets left="35.0" />
-                     </padding>
-                  </MFXButton>
                   <MFXButton fx:id="btnEmployee" alignment="BASELINE_LEFT" graphicTextGap="10.0" onAction="#btnEmployeeOnAction" prefHeight="50.0" prefWidth="190.0" styleClass="mfx-button-Dashboard" stylesheets="@../../styles/MFXDashboard.css" text="Employee" textFill="WHITE">
                      <graphic>
                         <ImageView fitHeight="19.0" fitWidth="29.0" pickOnBounds="true" preserveRatio="true">

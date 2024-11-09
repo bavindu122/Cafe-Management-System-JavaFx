@@ -16,7 +16,6 @@ import java.io.IOException;
 
 public class DashBoardFormController {
     public MFXButton btnDashboard;
-    public MFXButton btnOrder;
     public MFXButton btnMenuItems;
     public MFXButton btnCustomer;
     public MFXButton btnSales;
@@ -46,8 +45,6 @@ public class DashBoardFormController {
 
     }
 
-    public void btnOrderOnAction(ActionEvent actionEvent) {
-    }
 
     @FXML
     void btnEmployeeOnAction(ActionEvent event) throws IOException {
@@ -58,11 +55,21 @@ public class DashBoardFormController {
         mainPane.getChildren().add(registerPane);
     }
 
-    public void btnMenuItemsOnAction(ActionEvent actionEvent) {
+    public void btnMenuItemsOnAction(ActionEvent actionEvent) throws IOException {
+        setButtonActive(btnMenuItems);
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/fxml/Admin/MenuLast.fxml"));
+        Pane registerPane = (Pane) fxmlLoader.load();
+        mainPane.getChildren().clear();
+        mainPane.getChildren().add(registerPane);
 
     }
 
-    public void btnCustomerOnAction(ActionEvent actionEvent) {
+    public void btnCustomerOnAction(ActionEvent actionEvent) throws IOException {
+        setButtonActive(btnCustomer);
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/fxml/Admin/CustomerManagement.fxml"));
+        Pane registerPane = (Pane) fxmlLoader.load();
+        mainPane.getChildren().clear();
+        mainPane.getChildren().add(registerPane);
     }
 
     public void btnSalesOnAction(ActionEvent actionEvent) {
@@ -98,7 +105,7 @@ public class DashBoardFormController {
         btnDashboard.getStyleClass().removeAll("mfx-active-button","mfx-button");
 
 
-        btnOrder.getStyleClass().removeAll("mfx-active-button","mfx-button");
+
         btnSales.getStyleClass().removeAll("mfx-active-button","mfx-button");
         btnEmployee.getStyleClass().removeAll("mfx-active-button","mfx-button");
         btnCustomer.getStyleClass().removeAll("mfx-active-button","mfx-button");

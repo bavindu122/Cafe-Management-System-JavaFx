@@ -1,9 +1,16 @@
 package com.example.demo.Controllers.Admin;
 
+import com.example.demo.Controllers.Admin.Tables.CustomerTable;
+import com.example.demo.Controllers.Customer.Customer;
 import com.example.demo.Controllers.Product.Product;
+import com.example.demo.Controllers.Sale.Sale;
+import com.example.demo.Models.CustomerModel;
 import com.example.demo.Models.ProductsModel;
+import com.example.demo.Models.SalesModel;
+import io.github.palexdev.materialfx.controls.MFXButton;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.*;
@@ -14,6 +21,7 @@ import javafx.scene.layout.Pane;
 
 import java.io.IOException;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
 
 public class MenuController {
@@ -23,8 +31,8 @@ public class MenuController {
     public ScrollPane menu_scrollpane;
     public GridPane menu_gridpane;
     public ChoiceBox menu_customer;
-    public Button menu_paybtn;
-    public Button menu_cancelbtn;
+    public MFXButton btnCancel;
+    public MFXButton btnPay;
     @FXML
     private TableView<Product> menu_tableview;
 
@@ -47,6 +55,7 @@ public class MenuController {
     private Label menu_change; // Change displayed here
 
     private ObservableList<Product> productList = FXCollections.observableArrayList();
+    private ObservableList<String> customerList = FXCollections.observableArrayList();
 
     @FXML
     private void initialize() {
@@ -58,9 +67,28 @@ public class MenuController {
 
         menu_tableview.setItems(productList);
         menu_amount.textProperty().addListener((observable, oldValue, newValue) -> calculateChange());
+        menu_customer.setOnMouseClicked(event -> {
+            customerList.clear();
+            loadCustomers();
+            menu_customer.setItems(customerList);
+        });
     }
 
-    public void addProductToTable(String productName, int quantity, double unitPrice) {
+    private void loadCustomers() {
+        ArrayList <String> customerContactNo = new ArrayList<>();
+        try {
+            List<Customer> allCustomers = CustomerModel.getAllCustomers();
+            for (Customer customer : allCustomers) {
+                customerContactNo.add(customer.getContact_Number());
+            }
+            customerList.addAll(customerContactNo);
+
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+        public void addProductToTable(String productName, int quantity, double unitPrice) {
         Product product = new Product(null, productName, null, quantity, unitPrice);
 
         productList.add(product);
@@ -115,4 +143,38 @@ public class MenuController {
         }
     }
 
+    public void btnCancelOnAction(ActionEvent actionEvent) {
+        productList.clear();
+        menu_total.setText("Rs. 0.00");
+        menu_change.setText("Rs. 0.00");
+        menu_amount.clear();
+    }
+
+    public void btnPayOnAction(ActionEvent actionEvent) {
+        String customerContactNo = (String) menu_customer.getValue();
+        if (customerContactNo == null) {
+            new Alert(Alert.AlertType.ERROR, "Please select a customer").show();
+            return;
+        }
+        Customer customer = CustomerModel.searchCustomerByContactNo(customerContactNo);
+        if (customer == null) {
+            new Alert(Alert.AlertType.ERROR, "Customer not found").show();
+            return;
+        }
+        String saleId = SalesModel.generateNextSaleId();
+        double total = productList.stream()
+                .mapToDouble(product -> product.getStock() * product.getPrice())
+                .sum();
+        Sale sale = new Sale(saleId, customer.getName(), customer.getContact_Number(), total, new java.util.Date());
+        boolean isAdded = SalesModel.addSale(sale);
+        if (isAdded) {
+            new Alert(Alert.AlertType.CONFIRMATION, "Order added").show();
+            productList.clear();
+            menu_total.setText("Rs. 0.00");
+            menu_change.setText("Rs. 0.00");
+            menu_amount.clear();
+        } else {
+            new Alert(Alert.AlertType.ERROR, "Failed to add order").show();
+        }
+    }
 }

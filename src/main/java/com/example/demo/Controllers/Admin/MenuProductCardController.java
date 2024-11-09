@@ -45,7 +45,7 @@ public class MenuProductCardController {
 
     @FXML
     private void initialize() {
-        prod_spinner.setValueFactory(new SpinnerValueFactory.IntegerSpinnerValueFactory(0, 100, 0));
+        prod_spinner.setValueFactory(new SpinnerValueFactory.IntegerSpinnerValueFactory(0, 100, 1));
         prod_addbtn.setOnAction(event -> {
 
             String name = prod_name.getText();
@@ -73,7 +73,7 @@ public class MenuProductCardController {
 
     public void setProductDetails(Product product, MenuController menuController) {
         this.menuController = menuController;
-        prod_spinner.setValueFactory(new SpinnerValueFactory.IntegerSpinnerValueFactory(0, product.getStock(), 0));
+        prod_spinner.setValueFactory(new SpinnerValueFactory.IntegerSpinnerValueFactory(0, product.getStock(), 1));
         prod_name.setText(product.getProductName());
         prod_price.setText(String.valueOf(product.getPrice()));
         prod_imageview.setImage(new Image(new ByteArrayInputStream(product.getImage())));
