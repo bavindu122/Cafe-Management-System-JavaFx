@@ -15,6 +15,8 @@ import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
+import static com.example.demo.Models.Users.username;
+
 public class Login {
     public TextField usernameField;
     public PasswordField passwordField;
@@ -25,7 +27,6 @@ public class Login {
         String username = usernameField.getText();
         String password = passwordField.getText();
 
-        System.out.println("Username: " + username);
 
         try {
             int result = Users.checkAdminLogin(username, password);
@@ -51,7 +52,7 @@ public class Login {
                 result = Users.checkEmployeeLogin(username, password);
                 if (result == 1) {
                     System.out.println("Employee Login Successful");
-                    Employee employee = new Employee(username, password);
+                    Users.username = username;
                     FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/fxml/Employee/DashBoardControl.fxml"));
                     Parent parent = fxmlLoader.load();
                     Scene scene = new Scene(parent);

@@ -13,7 +13,7 @@ import lombok.Setter;
 import java.util.regex.Pattern;
 
 import static com.example.demo.Models.CustomerModel.generateNextCustomerId;
-//import static com.example.demo.Models.CustomerModel..generateNextCustomerId;
+
 
 public class AddCustomerFormController {
 
@@ -31,15 +31,6 @@ public class AddCustomerFormController {
 
     private String cusId=generateNextCustomerId();
 
-    public String generateNextEmployeeId() {
-        try {
-            String cusId = generateNextCustomerId();
-            return cusId;
-        } catch (Exception e) {
-            new Alert(Alert.AlertType.ERROR, e.getMessage()).show();
-            return null;
-        }
-    }
 
     public void initialize() {
         txtCustomerId.setText(cusId);
@@ -113,9 +104,7 @@ public class AddCustomerFormController {
         return true;
 
     }
-    public void setCustomerFormController(CustomerFormController customerFormController) {
-        this.customerFormController=customerFormController;
-    }
+
 
 
 }

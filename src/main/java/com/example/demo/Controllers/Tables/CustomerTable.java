@@ -1,8 +1,7 @@
-package com.example.demo.Controllers.Admin.Tables;
+package com.example.demo.Controllers.Tables;
 
 
 import io.github.palexdev.materialfx.controls.MFXButton;
-import javafx.scene.control.Button;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import lombok.AllArgsConstructor;
@@ -13,12 +12,10 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @Data
-public class EmployeeTable {
-    private String empId;
-    private String firstName;
-    private String lastName;
-    private String userName;
-    private String password;
+public class CustomerTable {
+    private String cusId;
+    private String Name;
+    private String address;
     private String contact_Number;
     private MFXButton updateButton;
     private MFXButton deleteButton;
@@ -53,13 +50,12 @@ public class EmployeeTable {
         deleteButton.setPrefWidth(80);
 
     }
-    public EmployeeTable(String empId,String firstName, String lastName, String userName, String password, String contactNumber) {
-        this.empId = empId;
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.userName = userName;
-        this.password = password;
-        this.contact_Number = contactNumber;
+    public CustomerTable(String cusId,String Name, String address, String contact_Number) {
+        this.cusId = cusId;
+        this.Name = Name;
+        this.address = address;
+        this.contact_Number = contact_Number;
     }
 
 }
+

@@ -1,9 +1,8 @@
 package com.example.demo.Controllers.Admin;
 
-import com.example.demo.Controllers.Admin.Tables.ProductTable;
+import com.example.demo.Controllers.Tables.ProductTable;
 import com.example.demo.Controllers.Product.Product;
 import com.example.demo.Models.ProductsModel;
-import com.example.demo.Models.Users;
 import io.github.palexdev.materialfx.controls.MFXButton;
 import io.github.palexdev.materialfx.controls.MFXFilterComboBox;
 import io.github.palexdev.materialfx.controls.MFXTextField;
@@ -18,9 +17,6 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.FileChooser;
 
-import java.awt.*;
-import java.awt.image.ImageObserver;
-import java.awt.image.ImageProducer;
 import java.io.ByteArrayInputStream;
 import java.io.File;
 import java.sql.SQLException;
@@ -165,6 +161,7 @@ public class InventoryFormController {
         double price = Double.parseDouble(txtPrice.getText());
         //load the image
         Image image = imgProduct.getImage();
+
 
         Product product = new Product(productId, productName, productType, stock, price);
         boolean isAdded = ProductsModel.addProduct(product, image);

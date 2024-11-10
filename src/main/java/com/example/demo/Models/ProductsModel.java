@@ -71,6 +71,7 @@ public class ProductsModel {
             pstm.setInt(4, product.getStock());
             pstm.setDouble(5, product.getPrice());
 
+
             ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
             ImageIO.write(SwingFXUtils.fromFXImage(image, null), "png", byteArrayOutputStream);
             byte[] imageBytes = byteArrayOutputStream.toByteArray();
@@ -78,6 +79,7 @@ public class ProductsModel {
 
             return pstm.executeUpdate() > 0;
         } catch (SQLException | IOException e) {
+
             throw new RuntimeException(e);
         }
     }
@@ -101,6 +103,7 @@ public class ProductsModel {
             return null;
         } catch (SQLException e) {
             throw new RuntimeException(e);
+
         }
     }
 
@@ -178,7 +181,6 @@ public class ProductsModel {
             throw new RuntimeException(e);
         }
     }
-
 
 
 }

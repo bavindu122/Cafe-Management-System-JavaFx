@@ -1,24 +1,29 @@
-package com.example.demo.Controllers.Admin.Tables;
+package com.example.demo.Controllers.Tables;
+
 
 import io.github.palexdev.materialfx.controls.MFXButton;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import lombok.Getter;
-import lombok.Setter;
-
-@Getter
-public class ProductTable {
-    @Setter
-    private String productId;
-    private String productName;
-    private String productType;
-    private int stock;
-    private double price;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 
+@AllArgsConstructor
+@NoArgsConstructor
+@Data
+public class EmployeeTable {
+    private String empId;
+    private String firstName;
+    private String lastName;
+    private String userName;
+    private String password;
+    private String contact_Number;
     private MFXButton updateButton;
     private MFXButton deleteButton;
     {
+
+
         ImageView update = new ImageView(new Image("/img/icons/edit.png"));
         ImageView delete = new ImageView(new Image("/img/icons/remove.png"));
 
@@ -47,13 +52,13 @@ public class ProductTable {
         deleteButton.setPrefWidth(80);
 
     }
-
-    public ProductTable(String productId, String productName, String productType, int stock, double price) {
-        this.productId = productId;
-        this.productName = productName;
-        this.productType = productType;
-        this.stock = stock;
-        this.price = price;
+    public EmployeeTable(String empId,String firstName, String lastName, String userName, String password, String contactNumber) {
+        this.empId = empId;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.userName = userName;
+        this.password = password;
+        this.contact_Number = contactNumber;
     }
 
 }

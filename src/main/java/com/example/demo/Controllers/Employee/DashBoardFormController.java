@@ -22,10 +22,9 @@ public class DashBoardFormController {
     public MFXButton btnInventory;
     public MFXButton btnLogout;
     public AnchorPane mainPane;
-    public MFXButton btnEmployee;
 
     public void initialize() throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/fxml/Admin/dashBoardMainForm.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/fxml/Employee/dashBoardMainForm.fxml"));
 
         Pane registerPane = (Pane) fxmlLoader.load();
         mainPane.getChildren().clear();
@@ -45,15 +44,6 @@ public class DashBoardFormController {
 
     }
 
-
-//    @FXML
-//    void btnEmployeeOnAction(ActionEvent event) throws IOException {
-//        setButtonActive(btnEmployee);
-//        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/fxml/Admin/EmployeeForm.fxml"));
-//        Pane registerPane = (Pane) fxmlLoader.load();
-//        mainPane.getChildren().clear();
-//        mainPane.getChildren().add(registerPane);
-//    }
 
     public void btnMenuItemsOnAction(ActionEvent actionEvent) throws IOException {
         setButtonActive(btnMenuItems);
@@ -112,7 +102,6 @@ public class DashBoardFormController {
 
 
         btnSales.getStyleClass().removeAll("mfx-active-button","mfx-button");
-//        btnEmployee.getStyleClass().removeAll("mfx-active-button","mfx-button");
         btnCustomer.getStyleClass().removeAll("mfx-active-button","mfx-button");
         btnLogout.getStyleClass().removeAll("mfx-active-button","mfx-button");
         btnMenuItems.getStyleClass().removeAll("mfx-active-button","mfx-button");

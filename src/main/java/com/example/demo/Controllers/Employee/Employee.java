@@ -3,11 +3,13 @@ package com.example.demo.Controllers.Employee;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 @AllArgsConstructor
 @NoArgsConstructor
 @Data
+@Getter
 public class Employee {
     private String empId;
     private String firstName;
@@ -15,6 +17,7 @@ public class Employee {
     private String userName;
     private String password;
     private String contact_Number;
+
 
     @Override
     public String toString() {
@@ -30,6 +33,10 @@ public class Employee {
 
     public String getEmpId() {
         return empId;
+    }
+
+    public String getUserName() {
+        return userName;
     }
 
     public Employee (String userName, String password) {

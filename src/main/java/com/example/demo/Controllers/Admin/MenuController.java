@@ -1,6 +1,5 @@
 package com.example.demo.Controllers.Admin;
 
-import com.example.demo.Controllers.Admin.Tables.CustomerTable;
 import com.example.demo.Controllers.Customer.Customer;
 import com.example.demo.Controllers.Product.Product;
 import com.example.demo.Controllers.Sale.Sale;

@@ -1,6 +1,6 @@
 package com.example.demo.Controllers.Admin;
 
-import com.example.demo.Controllers.Admin.Tables.CustomerTable;
+import com.example.demo.Controllers.Tables.CustomerTable;
 import com.example.demo.Controllers.Customer.Customer;
 import com.example.demo.Models.CustomerModel;
 import io.github.palexdev.materialfx.controls.MFXButton;
@@ -22,8 +22,6 @@ import java.io.IOException;
 import java.sql.SQLException;
 import java.util.List;
 import java.util.Optional;
-
-import static com.example.demo.Models.CustomerModel.updateCustomer;
 
 public class CustomerFormController {
     public MFXTextField txtSearch;

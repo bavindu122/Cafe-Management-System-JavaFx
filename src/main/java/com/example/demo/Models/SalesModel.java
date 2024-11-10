@@ -1,8 +1,9 @@
 package com.example.demo.Models;
 
-import com.example.demo.Controllers.Employee.Employee;
 import com.example.demo.Controllers.Sale.Sale;
 import com.example.demo.Database.DbConnection;
+import javafx.scene.chart.PieChart;
+import javafx.scene.chart.XYChart;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -37,6 +38,7 @@ public class SalesModel {
             throw new RuntimeException(e);
         }
     }
+
     public static boolean addSale(Sale sale) {
         try {
             Connection connection = DbConnection.getInstance().getConnection();
@@ -52,6 +54,7 @@ public class SalesModel {
             throw new RuntimeException(e);
         }
     }
+
     // method to get all sales amount
     public static Double getAllSalesAmount() {
         try {
@@ -68,6 +71,7 @@ public class SalesModel {
             throw new RuntimeException(e);
         }
     }
+
     // method to get all sales details
     public static List<Sale> getAllSales() {
         List<Sale> salesList = new ArrayList<>();
@@ -85,5 +89,53 @@ public class SalesModel {
             throw new RuntimeException(e);
         }
         return salesList;
+    }
+
+    public static int getAllSalesCount() {
+        try {
+            Connection connection = DbConnection.getInstance().getConnection();
+            String sql = "SELECT COUNT(sale_Id) FROM sales";
+            PreparedStatement pstm = connection.prepareStatement(sql);
+            ResultSet rst = pstm.executeQuery();
+            if (rst.next()) {
+                return rst.getInt(1);
+            } else {
+                return 0;
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    public static int getAllCustomersCount() {
+        try {
+            Connection connection = DbConnection.getInstance().getConnection();
+            String sql = "SELECT COUNT(cus_id) FROM customers";
+            PreparedStatement pstm = connection.prepareStatement(sql);
+            ResultSet rst = pstm.executeQuery();
+            if (rst.next()) {
+                return rst.getInt(1);
+            } else {
+                return 0;
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    public static XYChart.Series<String, Number> getInventoryChartData(ArrayList<String> months, ArrayList<Integer> inventory) {
+        XYChart.Series<String, Number> series = new XYChart.Series<>();
+        for (int i = 0; i < months.size(); i++) {
+            series.getData().add(new XYChart.Data<>(months.get(i), inventory.get(i)));
+        }
+        return series;
+    }
+
+    public static List<PieChart.Data> getSalesChartData(ArrayList<Sale> sales) {
+        List<PieChart.Data> pieChartData = new ArrayList<>();
+        for (Sale sale : sales) {
+            pieChartData.add(new PieChart.Data(sale.getCusName(), sale.getTotal()));
+        }
+        return pieChartData;
     }
 }

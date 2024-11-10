@@ -27,12 +27,11 @@ public class AddEmployeeFormController {
     @Setter
     private EmployeeFormController employeeFormController;
 
-    private String empId=generateNextEmployeeId();
+    private final String empId=generateNextEmployeeId();
 
     public String generateNextEmployeeId() {
         try {
-            String empId = Users.generateNextEmployeeId();
-            return empId;
+            return Users.generateNextEmployeeId();
         } catch (Exception e) {
             new Alert(Alert.AlertType.ERROR, e.getMessage()).show();
             return null;

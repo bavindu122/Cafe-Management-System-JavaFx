@@ -1,13 +1,12 @@
 package com.example.demo.Controllers.Admin;
 
-import com.example.demo.Controllers.Admin.Tables.EmployeeTable;
+import com.example.demo.Controllers.Tables.EmployeeTable;
 import com.example.demo.Controllers.Employee.Employee;
 import com.example.demo.Models.Users;
 import io.github.palexdev.materialfx.controls.MFXButton;
 import io.github.palexdev.materialfx.controls.MFXTextField;
 import io.github.palexdev.materialfx.css.themes.MFXThemeManager;
 import io.github.palexdev.materialfx.css.themes.Themes;
-import javafx.beans.Observable;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;

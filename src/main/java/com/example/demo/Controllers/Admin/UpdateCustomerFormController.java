@@ -21,10 +21,10 @@ public class UpdateCustomerFormController {
     public Text txtCustomerId;
     public MFXTextField txtMobileNo;
 
+    @Setter
     private String cusId;
     @Setter
     private CustomerFormController customerFormController;
-    private boolean isNameValid;
 
 
     public void btnUpdateCustomer(ActionEvent actionEvent) {
@@ -93,10 +93,6 @@ public class UpdateCustomerFormController {
         Stage btnCustomerStage = (Stage) btnCancel.getScene().getWindow();
         btnCustomerStage.close();
 
-    }
-
-    public void setCusId(String cusId) {
-        this.cusId = cusId;
     }
 
     public void loadCustomerDetails() {
