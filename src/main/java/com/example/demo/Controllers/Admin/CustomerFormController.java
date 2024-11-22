@@ -104,7 +104,7 @@ public class CustomerFormController {
     }
 
     private void updateCustomer(String cusId) throws IOException {
-        FXMLLoader loader = new FXMLLoader(this.getClass().getResource("/fxml/Admin/UpdateCustomerForm.fxml"));
+        FXMLLoader loader = new FXMLLoader(this.getClass().getResource("/view/Admin/UpdateCustomerForm.fxml"));
         Parent rootNode = loader.load();
 
         // Get a reference to the UpdateCustomerFormController
@@ -143,7 +143,7 @@ public class CustomerFormController {
     }
 
     public void btnAddCustomerOnAction(ActionEvent actionEvent) throws IOException {
-        FXMLLoader loader = new FXMLLoader(this.getClass().getResource("/fxml/Admin/AddCustomerForm.fxml"));
+        FXMLLoader loader = new FXMLLoader(this.getClass().getResource("/view/Admin/AddCustomerForm.fxml"));
         Parent rootNode = loader.load();
 
         // Get a reference to the AddCustomerFormController

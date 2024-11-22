@@ -25,7 +25,7 @@ public class DashBoardFormController {
     public MFXButton btnEmployee;
 
     public void initialize() throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/fxml/Admin/dashBoardMainForm.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/view/Admin/dashBoardMainForm.fxml"));
 
         Pane registerPane = (Pane) fxmlLoader.load();
         mainPane.getChildren().clear();
@@ -38,7 +38,7 @@ public class DashBoardFormController {
     @FXML
     void btnDashboardOnAction(ActionEvent event) throws IOException {
         setButtonActive(btnDashboard);
-        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/fxml/Admin/dashBoardMainForm.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/view/Admin/dashBoardMainForm.fxml"));
         Pane registerPane = (Pane) fxmlLoader.load();
         mainPane.getChildren().clear();
         mainPane.getChildren().add(registerPane);
@@ -49,7 +49,7 @@ public class DashBoardFormController {
     @FXML
     void btnEmployeeOnAction(ActionEvent event) throws IOException {
         setButtonActive(btnEmployee);
-        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/fxml/Admin/EmployeeForm.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/view/Admin/EmployeeForm.fxml"));
         Pane registerPane = (Pane) fxmlLoader.load();
         mainPane.getChildren().clear();
         mainPane.getChildren().add(registerPane);
@@ -57,7 +57,7 @@ public class DashBoardFormController {
 
     public void btnMenuItemsOnAction(ActionEvent actionEvent) throws IOException {
         setButtonActive(btnMenuItems);
-        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/fxml/Admin/MenuLast.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/view/Admin/MenuLast.fxml"));
         Pane registerPane = (Pane) fxmlLoader.load();
         mainPane.getChildren().clear();
         mainPane.getChildren().add(registerPane);
@@ -66,7 +66,7 @@ public class DashBoardFormController {
 
     public void btnCustomerOnAction(ActionEvent actionEvent) throws IOException {
         setButtonActive(btnCustomer);
-        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/fxml/Admin/CustomerManagement.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/view/Admin/CustomerManagement.fxml"));
         Pane registerPane = (Pane) fxmlLoader.load();
         mainPane.getChildren().clear();
         mainPane.getChildren().add(registerPane);
@@ -74,7 +74,7 @@ public class DashBoardFormController {
 
     public void btnSalesOnAction(ActionEvent actionEvent) throws IOException {
         setButtonActive(btnSales);
-        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/fxml/Admin/SalesForm.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/view/Admin/SalesForm.fxml"));
         Pane registerPane = (Pane) fxmlLoader.load();
         mainPane.getChildren().clear();
         mainPane.getChildren().add(registerPane);
@@ -82,7 +82,7 @@ public class DashBoardFormController {
 
     public void btnInventoryOnAction(ActionEvent actionEvent) throws IOException {
         setButtonActive(btnInventory);
-        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/fxml/Admin/InventoryForm.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/view/Admin/InventoryForm.fxml"));
         Pane registerPane = (Pane) fxmlLoader.load();
         mainPane.getChildren().clear();
         mainPane.getChildren().add(registerPane);
@@ -90,7 +90,7 @@ public class DashBoardFormController {
 
     @FXML
     void btnLogoutOnAction(ActionEvent event) throws IOException {
-        Parent rootNode = FXMLLoader.load(this.getClass().getResource("/fxml/Login.fxml"));
+        Parent rootNode = FXMLLoader.load(this.getClass().getResource("/view/Login.fxml"));
         Scene scene = new Scene(rootNode);
         MFXThemeManager.addOn(scene, Themes.DEFAULT, Themes.LEGACY);
         Stage stage = new Stage();

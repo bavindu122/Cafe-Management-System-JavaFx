@@ -111,7 +111,7 @@ public class EmployeeFormController {
     }
 
     private void updateEmployee(String empId) throws IOException {
-        FXMLLoader loader = new FXMLLoader(this.getClass().getResource("/fxml/Admin/UpdateEmployeeForm.fxml"));
+        FXMLLoader loader = new FXMLLoader(this.getClass().getResource("/view/Admin/UpdateEmployeeForm.fxml"));
         Parent rootNode = loader.load();
 
         UpdateEmployeeFormController updateEmployeeFormController = loader.getController();
@@ -141,7 +141,7 @@ public class EmployeeFormController {
     }
 
     public void btnAddEmployeeOnAction(ActionEvent actionEvent) throws IOException {
-        FXMLLoader loader = new FXMLLoader(this.getClass().getResource("/fxml/Admin/addEmployeeForm.fxml"));
+        FXMLLoader loader = new FXMLLoader(this.getClass().getResource("/view/Admin/addEmployeeForm.fxml"));
         Parent rootNode = loader.load();
 
         // Get a reference to the AddCustomerFormController

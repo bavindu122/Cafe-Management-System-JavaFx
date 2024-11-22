@@ -132,7 +132,7 @@ public class MenuController {
 
     private void addProductCard(Product product, int column, int row) {
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/Admin/MenuProductCard.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/Admin/MenuProductCard.fxml"));
             AnchorPane cardPane = loader.load();
             MenuProductCardController controller = loader.getController();
             controller.setProductDetails(product, this);

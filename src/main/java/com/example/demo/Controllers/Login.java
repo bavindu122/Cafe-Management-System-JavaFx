@@ -1,7 +1,6 @@
 package com.example.demo.Controllers;
 
 import com.example.demo.Controllers.Admin.Admin;
-import com.example.demo.Controllers.Employee.Employee;
 import com.example.demo.Models.Users;
 import io.github.palexdev.materialfx.css.themes.MFXThemeManager;
 import io.github.palexdev.materialfx.css.themes.Themes;
@@ -14,8 +13,6 @@ import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
-
-import static com.example.demo.Models.Users.username;
 
 public class Login {
     public TextField usernameField;
@@ -33,7 +30,7 @@ public class Login {
             if (result == 1) {
                 System.out.println("Admin Login Successful");
                 Admin admin = new Admin(username, password);
-                FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/fxml/Admin/DashBoardControl.fxml"));
+                FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/view/Admin/DashBoardControl.fxml"));
                 Parent parent = fxmlLoader.load();
                 Scene scene = new Scene(parent);
                 Stage stage = new Stage();
@@ -53,7 +50,7 @@ public class Login {
                 if (result == 1) {
                     System.out.println("Employee Login Successful");
                     Users.username = username;
-                    FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/fxml/Employee/DashBoardControl.fxml"));
+                    FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/view/Employee/DashBoardControl.fxml"));
                     Parent parent = fxmlLoader.load();
                     Scene scene = new Scene(parent);
                     Stage stage = new Stage();
