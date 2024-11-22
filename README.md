@@ -23,22 +23,22 @@ Whether you're managing employees or products, this system simplifies the proces
 ## Screenshots
 
 ### Login View
-![Product Table View](screenshots/login.png)
+![Product Table View](ScreenShots/login.png)
 
 ### Dashboard View
-![Product Table View](screenshots/dashboard.png)
+![Product Table View](ScreenShots/dashboard.png)
 
 ### Menu View
-![Product Table View](screenshots/menu.png)
+![Product Table View](ScreenShots/menu.png)
 
 ### Employee Management
-![Employee Management](screenshots/employee.png)
+![Employee Management](ScreenShots/employee.png)
 
 ### Sales View
-![Product Table View](screenshots/sales.png)
+![Product Table View](ScreenShots/sales.png)
 
 ### Customer Management
-![Employee Management](screenshots/customer.png)
+![Employee Management](ScreenShots/customer.png)
 ## Project Overview
 
 The system is developed using:
