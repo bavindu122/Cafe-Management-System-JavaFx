@@ -20,6 +20,25 @@ Whether you're managing employees or products, this system simplifies the proces
 - Integration with **MySQL** for secure and efficient data storage.
 - Easy-to-navigate application design tailored for small cafes.
 
+## Screenshots
+
+### Login View
+![Product Table View](screenshots/login.png)
+
+### Dashboard View
+![Product Table View](screenshots/dashboard.png)
+
+### Menu View
+![Product Table View](screenshots/menu.png)
+
+### Employee Management
+![Employee Management](screenshots/employee.png)
+
+### Sales View
+![Product Table View](screenshots/sales.png)
+
+### Customer Management
+![Employee Management](screenshots/customer.png)
 ## Project Overview
 
 The system is developed using:
